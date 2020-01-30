@@ -5,7 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -14,7 +17,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements  MovieItemClickListener{
 
     private List<Slide> lstSlides;
     private ViewPager sliderpager;
@@ -57,9 +60,26 @@ public class HomeActivity extends AppCompatActivity {
         listMovies.add(new Movie("No Time To Die", R.drawable.bond));
         listMovies.add(new Movie("Black Widow", R.drawable.black));
 
-        MovieAdapter movieAdapter = new MovieAdapter(this, listMovies);
+        MovieAdapter movieAdapter = new MovieAdapter(this, listMovies, this);
         moviesResView.setAdapter(movieAdapter);
         moviesResView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+
+    }
+
+    @Override
+    public void onMovieClick(Movie movie, ImageView movieImageView) {
+
+        //sending movie info to detail activity, transition animation between two activities
+        Intent intent = new Intent(this, MovieDetailActivity.class);
+        // send movie info to detailActivity
+        intent.putExtra("title",movie.getTitle());
+        intent.putExtra("imgURL", movie.getThumbnail());
+        // creation of the animation
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(HomeActivity.this, movieImageView, "sharedName");
+        startActivity(intent, options.toBundle());
+
+
 
 
     }
