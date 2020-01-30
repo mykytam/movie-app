@@ -1,6 +1,8 @@
 package com.example.movielover;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -17,6 +19,7 @@ public class HomeActivity extends AppCompatActivity {
     private List<Slide> lstSlides;
     private ViewPager sliderpager;
     private TabLayout indicator;
+    private RecyclerView moviesResView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
 
         sliderpager = findViewById(R.id.slider_pager);
         indicator = findViewById(R.id.indicator);
+        moviesResView = findViewById(R.id.Rv_movies);
 
         // prepare a list of slides
         lstSlides = new ArrayList<>();
@@ -43,6 +47,21 @@ public class HomeActivity extends AppCompatActivity {
 
 
         indicator.setupWithViewPager(sliderpager, true);
+
+        // Recyclerview Setup
+        // ini data
+        List<Movie> listMovies = new ArrayList<>();
+        listMovies.add(new Movie("Birds Of Prey", R.drawable.harley));
+        listMovies.add(new Movie("Mulan", R.drawable.mulan));
+        listMovies.add(new Movie("Fast & Furious 9", R.drawable.fast9));
+        listMovies.add(new Movie("No Time To Die", R.drawable.bond));
+        listMovies.add(new Movie("Black Widow", R.drawable.black));
+
+        MovieAdapter movieAdapter = new MovieAdapter(this, listMovies);
+        moviesResView.setAdapter(movieAdapter);
+        moviesResView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+
     }
 
     class SliderTimer extends TimerTask {
