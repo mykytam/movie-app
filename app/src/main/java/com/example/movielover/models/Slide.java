@@ -1,4 +1,4 @@
-package com.example.movielover;
+package com.example.movielover.models;
 
 public class Slide {
 

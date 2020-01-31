@@ -1,4 +1,4 @@
-package com.example.movielover;
+package com.example.movielover.models;
 
 public class Movie {
 
@@ -10,10 +10,18 @@ public class Movie {
     private String studio;
     private String rating;
     private String streamingLink;
+    private int coverPicture;
+
+    public Movie(String title, int thumbnail, int coverPicture) {
+        this.title = title;
+        this.thumbnail = thumbnail;
+        this.coverPicture = coverPicture;
+    }
 
     public Movie(String title, int thumbnail) {
         this.title = title;
         this.thumbnail = thumbnail;
+
     }
 
     public Movie(String title, String description, int thumbnail, String studio, String rating, String streamingLink) {
@@ -32,6 +40,14 @@ public class Movie {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public int getCoverPicture() {
+        return coverPicture;
+    }
+
+    public void setCoverPicture(int coverPicture) {
+        this.coverPicture = coverPicture;
     }
 
     public String getDescription() {

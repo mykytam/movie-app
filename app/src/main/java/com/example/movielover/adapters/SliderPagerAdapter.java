@@ -1,4 +1,4 @@
-package com.example.movielover;
+package com.example.movielover.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.example.movielover.R;
+import com.example.movielover.models.Slide;
 
 import java.util.List;
 
@@ -28,11 +31,11 @@ public class SliderPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View slideLayout = inflater.inflate(R.layout.slide_item, null);
+        View slideLayout = inflater.inflate(R.layout.slide_item,null);
 
-        ImageView sliderImg = slideLayout.findViewById(R.id.slider_img);
-        TextView slideText = slideLayout.findViewById(R.id.silder_title);
-        sliderImg.setImageResource(mList.get(position).getImage());
+        ImageView slideImg = slideLayout.findViewById(R.id.slider_img);
+        TextView slideText = slideLayout.findViewById(R.id.slider_title);
+        slideImg.setImageResource(mList.get(position).getImage());
         slideText.setText(mList.get(position).getTitle());
 
         container.addView(slideLayout);
