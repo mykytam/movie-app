@@ -5,6 +5,7 @@
     android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".ui.MovieDetailActivity">
 
 
@@ -13,19 +14,19 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:scaleType="centerCrop"
             android:id="@+id/detail_movie_cover"
             android:layout_width="wrap_content"
-            android:layout_height="245dp"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/gradient"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="250dp"
             app:layout_constraintBottom_toBottomOf="@+id/detail_movie_cover"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/detail_movie_cover"
@@ -41,47 +42,63 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/detail_movie_cover"
             app:layout_constraintTop_toTopOf="parent"
-            app:src="@drawable/ic_play_arrow_black_24dp" />
+            app:srcCompat="@drawable/ic_play_arrow_black_24dp"
+            android:focusable="true" />
+
 
         <ImageView
             android:id="@+id/detail_movie_img"
             android:layout_width="125dp"
-            android:layout_height="175dp"
+            android:layout_height="200dp"
             android:layout_marginStart="16dp"
             android:scaleType="centerCrop"
             android:transitionName="sharedName"
             app:layout_constraintBottom_toBottomOf="@+id/detail_movie_cover"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detail_movie_cover"
-            app:srcCompat="@drawable/black" />
+            app:srcCompat="@drawable/black_widow" />
 
         <TextView
             android:textColor="#f1b814"
             android:textStyle="bold"
+            android:textSize="25dp"
             android:id="@+id/detail_movie_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="TextView"
+            android:text="Title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/detail_movie_img"
             app:layout_constraintTop_toBottomOf="@+id/detail_movie_cover" />
 
         <TextView
-            android:lineSpacingExtra="8dp"
-            android:textColor="#f1b814"
-            android:text="@string/simple_text"
             android:id="@+id/detail_movie_desc"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="370dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:lineSpacingExtra="8dp"
+            android:text="Description"
+            android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detail_movie_img" />
+
+        <TextView
+            android:id="@+id/detail_movie_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Rating"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@+id/detail_movie_desc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/detail_movie_img"
+            app:layout_constraintTop_toBottomOf="@+id/detail_movie_title" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

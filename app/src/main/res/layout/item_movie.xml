@@ -12,8 +12,8 @@
     <ImageView
         android:scaleType="centerCrop"
         android:id="@+id/item_movie_image"
-        android:layout_width="0dp"
-        android:layout_height="175dp"
+        android:layout_width="125dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

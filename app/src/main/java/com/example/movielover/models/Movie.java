@@ -12,6 +12,16 @@ public class Movie {
     private String streamingLink;
     private int coverPicture;
 
+
+
+    public Movie(String title, String description, int thumbnail, String rating, int coverPicture) {
+        this.title = title;
+        this.description = description;
+        this.thumbnail = thumbnail;
+        this.rating = rating;
+        this.coverPicture = coverPicture;
+    }
+
     public Movie(String title, int thumbnail, int coverPicture) {
         this.title = title;
         this.thumbnail = thumbnail;
