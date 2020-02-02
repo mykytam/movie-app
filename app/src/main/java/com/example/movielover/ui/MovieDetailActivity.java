@@ -2,7 +2,10 @@ package com.example.movielover.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -33,6 +36,15 @@ public class MovieDetailActivity extends AppCompatActivity {
     void iniViews() {
         // get the data
         play_fab = findViewById(R.id.play_fab);
+        String url = getIntent().getExtras().getString("trailerURL");
+        play_fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(browserIntent);
+            }
+        });
+
         String movieTitle = getIntent().getExtras().getString("title");
         String movieDesc = getIntent().getExtras().getString("desc");
         String rat = getIntent().getExtras().getString("rating");

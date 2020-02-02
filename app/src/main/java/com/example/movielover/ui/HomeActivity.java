@@ -8,8 +8,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ import com.example.movielover.R;
 import com.example.movielover.models.Slide;
 import com.example.movielover.adapters.SliderPagerAdapter;
 import com.example.movielover.utils.DataSource;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -30,7 +33,6 @@ import java.util.TimerTask;
 
 public class HomeActivity extends AppCompatActivity implements MovieItemClickListener {
 
-    private List<Slide> lstSlides;
     private ViewPager sliderpager;
     private TabLayout indicator;
     private RecyclerView moviesResView, moviesClassics;
@@ -46,8 +48,6 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
         iniSlider();
         iniNewMovies();
         iniClassicsMovies();
-
-
     }
 
     private void iniClassicsMovies() {
@@ -65,15 +65,9 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
     }
 
     private void iniSlider() {
-        // prepare a list of slides
-        lstSlides = new ArrayList<>();
-        lstSlides.add(new Slide(R.drawable.slide1, "1917"));
-        lstSlides.add(new Slide(R.drawable.slide2, "The Irishman"));
-        lstSlides.add(new Slide(R.drawable.slide3, "Little Women"));
-        lstSlides.add(new Slide(R.drawable.slide4, "The Two Popes"));
-        lstSlides.add(new Slide(R.drawable.slide5, "Once Upon a Time… in Hollywood"));
 
-        SliderPagerAdapter adapter = new SliderPagerAdapter(this, lstSlides);
+        // prepare a list of slides
+        SliderPagerAdapter adapter = new SliderPagerAdapter(this, DataSource.getSliderMovies());
         sliderpager.setAdapter(adapter);
 
         //setup timer
@@ -95,16 +89,21 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
 
         //sending movie info to detail activity, transition animation between two activities
         Intent intent = new Intent(this, MovieDetailActivity.class);
+        Intent intent1 = new Intent(this, HomeScreenTrailer.class);
         // send movie info to detailActivity
-        intent.putExtra("title",movie.getTitle());
+        intent.putExtra("title", movie.getTitle());
         intent.putExtra("imgURL", movie.getThumbnail());
         intent.putExtra("imgCover", movie.getCoverPicture());
         intent.putExtra("desc", movie.getDescription());
         intent.putExtra("rating", movie.getRating());
+        intent.putExtra("trailerURL", movie.getTrailerLink());
         // creation of the animation
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(HomeActivity.this, movieImageView, "sharedName");
         startActivity(intent, options.toBundle());
     }
+
+
+
 
     class SliderTimer extends TimerTask {
 
@@ -114,7 +113,7 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
             HomeActivity.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (sliderpager.getCurrentItem()<lstSlides.size()-1) {
+                    if (sliderpager.getCurrentItem()<DataSource.getSliderMovies().size()-1) {
                         sliderpager.setCurrentItem(sliderpager.getCurrentItem()+1);
                     } else {
                         sliderpager.setCurrentItem(0);

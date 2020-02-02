@@ -9,10 +9,21 @@ public class Movie {
     private int thumbnail;
     private String studio;
     private String rating;
-    private String streamingLink;
+    private String trailerLink;
     private int coverPicture;
 
 
+
+
+
+    public Movie(String title, String description, int thumbnail, String rating, int coverPicture, String trailerLink) {
+        this.title = title;
+        this.description = description;
+        this.thumbnail = thumbnail;
+        this.rating = rating;
+        this.coverPicture = coverPicture;
+        this.trailerLink = trailerLink;
+    }
 
     public Movie(String title, String description, int thumbnail, String rating, int coverPicture) {
         this.title = title;
@@ -40,7 +51,7 @@ public class Movie {
         this.thumbnail = thumbnail;
         this.studio = studio;
         this.rating = rating;
-        this.streamingLink = streamingLink;
+        this.trailerLink = streamingLink;
     }
 
 
@@ -92,11 +103,11 @@ public class Movie {
         this.rating = rating;
     }
 
-    public String getStreamingLink() {
-        return streamingLink;
+    public String getTrailerLink() {
+        return trailerLink;
     }
 
-    public void setStreamingLink(String streamingLink) {
-        this.streamingLink = streamingLink;
+    public void setTrailerLink(String streamingLink) {
+        this.trailerLink = trailerLink;
     }
 }

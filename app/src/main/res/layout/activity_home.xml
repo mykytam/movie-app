@@ -53,7 +53,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Coming soon to theaters"
+        android:text="New Movies Coming Soon"
         android:textStyle="bold"
         android:textAllCaps="true"
         android:textColor="#f1b814"
