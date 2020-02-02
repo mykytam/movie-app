@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
     private List<Slide> lstSlides;
     private ViewPager sliderpager;
     private TabLayout indicator;
-    private RecyclerView moviesResView;
+    private RecyclerView moviesResView, moviesClassics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,15 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
         iniViews();
         iniSlider();
         iniNewMovies();
+        iniClassicsMovies();
 
 
+    }
+
+    private void iniClassicsMovies() {
+        MovieAdapter classicMovieAdapter = new MovieAdapter(this, DataSource.getClassicsMovies(), this);
+        moviesClassics.setAdapter(classicMovieAdapter);
+        moviesClassics.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void iniNewMovies() {
@@ -64,6 +71,7 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
         lstSlides.add(new Slide(R.drawable.slide2, "The Irishman"));
         lstSlides.add(new Slide(R.drawable.slide3, "Little Women"));
         lstSlides.add(new Slide(R.drawable.slide4, "The Two Popes"));
+        lstSlides.add(new Slide(R.drawable.slide5, "Once Upon a Time… in Hollywood"));
 
         SliderPagerAdapter adapter = new SliderPagerAdapter(this, lstSlides);
         sliderpager.setAdapter(adapter);
@@ -78,6 +86,7 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
         sliderpager = findViewById(R.id.slider_pager);
         indicator = findViewById(R.id.indicator);
         moviesResView = findViewById(R.id.Rv_movies);
+        moviesClassics =findViewById(R.id.Rv_movies_classics);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

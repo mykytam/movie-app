@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
     <androidx.viewpager.widget.ViewPager
@@ -46,7 +46,7 @@
         app:srcCompat="@drawable/gradient_bg_new" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/coming_soon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -64,6 +64,25 @@
         app:layout_constraintTop_toBottomOf="@+id/indicator"
         app:layout_constraintVertical_bias="0.0" />
 
+        <TextView
+            android:id="@+id/classics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Best Classic Movies"
+            android:textAllCaps="true"
+            android:textColor="#f1b814"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Rv_movies"
+            app:layout_constraintVertical_bias="0.0" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rv_movies"
         android:layout_width="0dp"
@@ -73,7 +92,23 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-    <!--app:layout_constraintVertical_bias="0.0" -->
+        app:layout_constraintTop_toBottomOf="@+id/coming_soon" />
 
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Rv_movies_classics"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/classics" />
+
+        <!--app:layout_constraintVertical_bias="0.0" -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
