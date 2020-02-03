@@ -1,11 +1,9 @@
 package com.example.movielover.ui;
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
@@ -15,7 +13,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.example.movielover.models.Movie;
 import com.example.movielover.adapters.MovieAdapter;
 import com.example.movielover.adapters.MovieItemClickListener;
@@ -25,7 +22,6 @@ import com.example.movielover.adapters.SliderPagerAdapter;
 import com.example.movielover.utils.DataSource;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -65,7 +61,6 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
     }
 
     private void iniSlider() {
-
         // prepare a list of slides
         SliderPagerAdapter adapter = new SliderPagerAdapter(this, DataSource.getSliderMovies());
         sliderpager.setAdapter(adapter);
@@ -89,7 +84,6 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
 
         //sending movie info to detail activity, transition animation between two activities
         Intent intent = new Intent(this, MovieDetailActivity.class);
-        Intent intent1 = new Intent(this, HomeScreenTrailer.class);
         // send movie info to detailActivity
         intent.putExtra("title", movie.getTitle());
         intent.putExtra("imgURL", movie.getThumbnail());

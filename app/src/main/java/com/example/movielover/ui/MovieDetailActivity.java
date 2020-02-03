@@ -18,7 +18,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MovieDetailActivity extends AppCompatActivity {
 
     private ImageView MovieThumbnailImg, MovieCoverImg;
-    private TextView movie_title, movie_desc, rating, year, genre, runtime;
+    private TextView movie_title, movie_desc, rating;
+    private TextView Myear, Mgenre, Mruntime;
     private FloatingActionButton play_fab;
 
 
@@ -50,7 +51,8 @@ public class MovieDetailActivity extends AppCompatActivity {
         String rat = getIntent().getExtras().getString("rating");
         int imageResourceId = getIntent().getExtras().getInt("imgURL");
         int imageСover = getIntent().getExtras().getInt("imgCover");
-        int movieYear = getIntent().getExtras().getInt("year");
+
+        String movieYear = getIntent().getExtras().getString("year");
         String movieGenre = getIntent().getExtras().getString("genre");
         String movieRuntime = getIntent().getExtras().getString("runtime");
 
@@ -64,20 +66,20 @@ public class MovieDetailActivity extends AppCompatActivity {
         movie_title = findViewById(R.id.detail_movie_title);
         movie_title.setText(movieTitle);
 
-        year = findViewById(R.id.movie_detail_year);
-        year.setText(movieYear);
+        rating = findViewById(R.id.movie_detail_rating);
+        rating.setText(rat);
+
+        Myear = findViewById(R.id.movie_detail_year);
+        Myear.setText(movieYear);
 
         movie_desc = findViewById(R.id.detail_movie_desc);
         movie_desc.setText(movieDesc);
 
-        rating = findViewById(R.id.detail_movie_rating);
-        rating.setText(rat);
+        Mgenre = findViewById(R.id.movie_detail_genre);
+        Mgenre.setText(movieGenre);
 
-        genre = findViewById(R.id.movie_detail_genre);
-        genre.setText(movieGenre);
-
-        runtime = findViewById(R.id.movie_detail_runtime);
-        runtime.setText(movieRuntime);
+        Mruntime = findViewById(R.id.movie_detail_runtime);
+        Mruntime.setText(movieRuntime);
 
         //animation
         MovieCoverImg.setAnimation(AnimationUtils.loadAnimation(this, R.anim.scale_animation));
