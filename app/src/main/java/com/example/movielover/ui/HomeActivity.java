@@ -97,6 +97,9 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
         intent.putExtra("desc", movie.getDescription());
         intent.putExtra("rating", movie.getRating());
         intent.putExtra("trailerURL", movie.getTrailerLink());
+        intent.putExtra("year", movie.getYear());
+        intent.putExtra("genre", movie.getGenre());
+        intent.putExtra("runtime", movie.getRuntime());
         // creation of the animation
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(HomeActivity.this, movieImageView, "sharedName");
         startActivity(intent, options.toBundle());

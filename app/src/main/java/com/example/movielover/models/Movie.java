@@ -5,6 +5,9 @@ public class Movie {
 
 
     private String title;
+    private String genre;
+    private int year;
+    private String runtime;
     private String description;
     private int thumbnail;
     private String studio;
@@ -16,13 +19,16 @@ public class Movie {
 
 
 
-    public Movie(String title, String description, int thumbnail, String rating, int coverPicture, String trailerLink) {
+    public Movie(String title, String description, int thumbnail, String rating, int coverPicture, String trailerLink, String genre, int year, String runtime) {
         this.title = title;
         this.description = description;
         this.thumbnail = thumbnail;
         this.rating = rating;
         this.coverPicture = coverPicture;
         this.trailerLink = trailerLink;
+        this.genre = genre;
+        this.year = year;
+        this.runtime = runtime;
     }
 
     public Movie(String title, String description, int thumbnail, String rating, int coverPicture) {
@@ -54,6 +60,29 @@ public class Movie {
         this.trailerLink = streamingLink;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getRuntime() {
+        return runtime;
+    }
+
+    public void setRuntime(String runtime) {
+        this.runtime = runtime;
+    }
 
     public String getTitle() {
         return title;

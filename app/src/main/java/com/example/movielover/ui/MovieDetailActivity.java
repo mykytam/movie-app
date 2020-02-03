@@ -18,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MovieDetailActivity extends AppCompatActivity {
 
     private ImageView MovieThumbnailImg, MovieCoverImg;
-    private TextView movie_title, movie_desc, rating;
+    private TextView movie_title, movie_desc, rating, year, genre, runtime;
     private FloatingActionButton play_fab;
 
 
@@ -50,6 +50,9 @@ public class MovieDetailActivity extends AppCompatActivity {
         String rat = getIntent().getExtras().getString("rating");
         int imageResourceId = getIntent().getExtras().getInt("imgURL");
         int imageСover = getIntent().getExtras().getInt("imgCover");
+        int movieYear = getIntent().getExtras().getInt("year");
+        String movieGenre = getIntent().getExtras().getString("genre");
+        String movieRuntime = getIntent().getExtras().getString("runtime");
 
         MovieThumbnailImg = findViewById(R.id.detail_movie_img);
         Glide.with(this).load(imageResourceId).into(MovieThumbnailImg);
@@ -61,15 +64,24 @@ public class MovieDetailActivity extends AppCompatActivity {
         movie_title = findViewById(R.id.detail_movie_title);
         movie_title.setText(movieTitle);
 
+        year = findViewById(R.id.movie_detail_year);
+        year.setText(movieYear);
 
         movie_desc = findViewById(R.id.detail_movie_desc);
         movie_desc.setText(movieDesc);
+
         rating = findViewById(R.id.detail_movie_rating);
         rating.setText(rat);
+
+        genre = findViewById(R.id.movie_detail_genre);
+        genre.setText(movieGenre);
+
+        runtime = findViewById(R.id.movie_detail_runtime);
+        runtime.setText(movieRuntime);
+
         //animation
         MovieCoverImg.setAnimation(AnimationUtils.loadAnimation(this, R.anim.scale_animation));
         play_fab.setAnimation(AnimationUtils.loadAnimation(this, R.anim.scale_animation));
-
 
     }
 }
