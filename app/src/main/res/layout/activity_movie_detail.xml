@@ -63,13 +63,16 @@
             android:id="@+id/detail_movie_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:gravity="center"
             android:text="Title"
             android:textColor="#f1b814"
-            android:textSize="25dp"
+            android:textSize="30dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/movie_detail_year"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_movie_img"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/detail_movie_img"
             app:layout_constraintTop_toBottomOf="@+id/detail_movie_cover" />
 
@@ -87,16 +90,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_movie_img"
+            app:layout_constraintTop_toBottomOf="@+id/movie_detail_genre"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/movie_detail_rating_imdb"
-            android:layout_width="40dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="8.0"
+            android:text="9.0/10"
             android:textColor="@android:color/white"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/imdb"
@@ -105,48 +108,54 @@
 
         <TextView
             android:id="@+id/movie_detail_runtime"
-            android:layout_width="0dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:background="@layout/rounded_border_textview"
+            android:gravity="center"
             android:padding="4dp"
-            android:text="Runtime"
+            android:text="2h 15min"
             android:textColor="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_movie_title" />
+            app:layout_constraintEnd_toStartOf="@+id/movie_detail_year"
+            app:layout_constraintStart_toEndOf="@+id/movie_detail_genre"
+            app:layout_constraintTop_toBottomOf="@+id/detail_movie_img" />
 
         <TextView
             android:id="@+id/movie_detail_genre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
             android:background="@layout/rounded_border_textview"
             android:padding="4dp"
             android:text="Genre"
             android:textColor="@android:color/white"
-            app:layout_constraintStart_toEndOf="@+id/detail_movie_img"
-            app:layout_constraintTop_toBottomOf="@+id/detail_movie_title" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_movie_img" />
 
         <TextView
             android:id="@+id/movie_detail_year"
-            android:layout_width="45dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="27dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@layout/rounded_border_textview"
+            android:gravity="center"
+            android:padding="4dp"
             android:text="Year"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_movie_cover" />
+            app:layout_constraintTop_toBottomOf="@+id/detail_movie_img" />
 
         <TextView
             android:id="@+id/movie_detail_rating_rt"
-            android:layout_width="40dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="76%"
+            android:text="76/100"
             android:textColor="@android:color/white"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/rotten"
@@ -155,11 +164,11 @@
 
         <TextView
             android:id="@+id/movie_detail_rating_mc"
-            android:layout_width="40dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="79%"
+            android:text="79/100"
             android:textColor="@android:color/white"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/meta"
