@@ -6,24 +6,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
+
 import com.example.movielover.models.Movie;
 import com.example.movielover.adapters.MovieAdapter;
 import com.example.movielover.adapters.MovieItemClickListener;
 import com.example.movielover.R;
-import com.example.movielover.models.Slide;
 import com.example.movielover.adapters.SliderPagerAdapter;
 import com.example.movielover.utils.DataSource;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -89,7 +84,9 @@ public class HomeActivity extends AppCompatActivity implements MovieItemClickLis
         intent.putExtra("imgURL", movie.getThumbnail());
         intent.putExtra("imgCover", movie.getCoverPicture());
         intent.putExtra("desc", movie.getDescription());
-        intent.putExtra("rating", movie.getRating());
+        intent.putExtra("ratingIMDB", movie.getRatingImdb());
+        intent.putExtra("ratingROTTEN", movie.getRatingRotten());
+        intent.putExtra("ratingMETA", movie.getRatingMeta());
         intent.putExtra("trailerURL", movie.getTrailerLink());
         intent.putExtra("year", movie.getYear());
         intent.putExtra("genre", movie.getGenre());

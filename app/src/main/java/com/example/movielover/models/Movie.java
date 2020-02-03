@@ -11,7 +11,9 @@ public class Movie {
     private String description;
     private int thumbnail;
     private String studio;
-    private String rating;
+    private String ratingImdb;
+    private String ratingRotten;
+    private String ratingMeta;
     private String trailerLink;
     private int coverPicture;
 
@@ -19,11 +21,13 @@ public class Movie {
 
 
 
-    public Movie(String title, String description, int thumbnail, String rating, int coverPicture, String trailerLink, String genre, String year, String runtime) {
+    public Movie(String title, String description, int thumbnail, String ratingImdb,String ratingRotten ,String ratingMeta,int coverPicture, String trailerLink, String genre, String year, String runtime) {
         this.title = title;
         this.description = description;
         this.thumbnail = thumbnail;
-        this.rating = rating;
+        this.ratingImdb = ratingImdb;
+        this.ratingRotten = ratingRotten;
+        this.ratingMeta = ratingMeta;
         this.coverPicture = coverPicture;
         this.trailerLink = trailerLink;
         this.genre = genre;
@@ -31,11 +35,11 @@ public class Movie {
         this.runtime = runtime;
     }
 
-    public Movie(String title, String description, int thumbnail, String rating, int coverPicture) {
+    public Movie(String title, String description, int thumbnail, String ratingImdb, int coverPicture) {
         this.title = title;
         this.description = description;
         this.thumbnail = thumbnail;
-        this.rating = rating;
+        this.ratingImdb = ratingImdb;
         this.coverPicture = coverPicture;
     }
 
@@ -51,15 +55,32 @@ public class Movie {
 
     }
 /*
-    public Movie(String title, String description, int thumbnail, String studio, String rating, String streamingLink) {
+    public Movie(String title, String description, int thumbnail, String studio, String ratingImdb, String streamingLink) {
         this.title = title;
         this.description = description;
         this.thumbnail = thumbnail;
         this.studio = studio;
-        this.rating = rating;
+        this.ratingImdb = ratingImdb;
         this.trailerLink = streamingLink;
     }
 */
+    public String getRatingRotten() {
+    return ratingRotten;
+    }
+
+    public void setRatingRotten(String ratingRotten) {
+        this.ratingRotten = ratingRotten;
+    }
+
+    public String getRatingMeta() {
+        return ratingMeta;
+    }
+
+    public void setRatingMeta(String ratingMeta) {
+        this.ratingMeta = ratingMeta;
+    }
+
+
     public String getGenre() { return genre; }
 
     public void setGenre(String genre) { this.genre = genre; }
@@ -112,12 +133,12 @@ public class Movie {
         this.studio = studio;
     }
 
-    public String getRating() {
-        return rating;
+    public String getRatingImdb() {
+        return ratingImdb;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public void setRatingImdb(String ratingImdb) {
+        this.ratingImdb = ratingImdb;
     }
 
     public String getTrailerLink() {

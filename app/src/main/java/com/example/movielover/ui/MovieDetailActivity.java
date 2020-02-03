@@ -18,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MovieDetailActivity extends AppCompatActivity {
 
     private ImageView MovieThumbnailImg, MovieCoverImg;
-    private TextView movie_title, movie_desc, rating;
+    private TextView movie_title, movie_desc, rating, ratingI, ratingR, ratingM;
     private TextView Myear, Mgenre, Mruntime;
     private FloatingActionButton play_fab;
 
@@ -48,13 +48,17 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         String movieTitle = getIntent().getExtras().getString("title");
         String movieDesc = getIntent().getExtras().getString("desc");
-        String rat = getIntent().getExtras().getString("rating");
+        String ratImdb = getIntent().getExtras().getString("ratingIMDB");
+        String ratRotten = getIntent().getExtras().getString("ratingROTTEN");
+        String ratMeta = getIntent().getExtras().getString("ratingMETA");
+
         int imageResourceId = getIntent().getExtras().getInt("imgURL");
         int imageСover = getIntent().getExtras().getInt("imgCover");
 
         String movieYear = getIntent().getExtras().getString("year");
         String movieGenre = getIntent().getExtras().getString("genre");
         String movieRuntime = getIntent().getExtras().getString("runtime");
+
 
         MovieThumbnailImg = findViewById(R.id.detail_movie_img);
         Glide.with(this).load(imageResourceId).into(MovieThumbnailImg);
@@ -66,8 +70,14 @@ public class MovieDetailActivity extends AppCompatActivity {
         movie_title = findViewById(R.id.detail_movie_title);
         movie_title.setText(movieTitle);
 
-        rating = findViewById(R.id.movie_detail_rating);
-        rating.setText(rat);
+        ratingI = findViewById(R.id.movie_detail_rating_imdb);
+        ratingI.setText(ratImdb);
+
+        ratingR = findViewById(R.id.movie_detail_rating_rt);
+        ratingR.setText(ratRotten);
+
+        ratingM = findViewById(R.id.movie_detail_rating_mc);
+        ratingM.setText(ratMeta);
 
         Myear = findViewById(R.id.movie_detail_year);
         Myear.setText(movieYear);
