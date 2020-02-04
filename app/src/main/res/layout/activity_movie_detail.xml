@@ -69,7 +69,7 @@
             android:gravity="center"
             android:text="Title"
             android:textColor="#f1b814"
-            android:textSize="30dp"
+            android:textSize="27dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/detail_movie_img"
             app:layout_constraintEnd_toEndOf="parent"
